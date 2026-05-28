@@ -1,48 +1,50 @@
-# vue-back4app-docker
+# Vue Back4App Docker
 
-Aplicacion Vue 3 con Vite basada en el tutorial de Back4App "Como implementar una aplicacion Vue.js".
+## Descripción
 
-La app se llama **Unbored** y su objetivo es sugerir actividades para no aburrirse. Usa Vue Router, Axios y una pantalla que consume una API publica de actividades.
+Aplicación Vue.js basada en el tutorial de Back4App sobre cómo implementar una aplicación Vue y dockerizarla para su despliegue. La app se llama Unbored y permite obtener sugerencias de actividades usando una API pública.
 
-Nota: el endpoint original del tutorial, `https://www.boredapi.com/api/activity`, puede no responder actualmente. Por eso esta version usa `https://bored-api.appbrewery.com/random`, una API publica compatible que devuelve actividades y permite mantener una peticion real con Axios.
+El endpoint original del tutorial, `https://www.boredapi.com/api/activity`, puede no responder actualmente. Por ese motivo, esta versión usa `https://bored-api.appbrewery.com/random`, una API pública compatible que devuelve actividades y permite mantener una petición real con Axios.
 
-## Tecnologias iniciales
+## Tecnologías utilizadas
 
-- Vue 3
+- Vue.js 3
 - Vite
 - JavaScript
-- npm
 - Vue Router
 - Axios
 - Sass
-- Iconify para Vue
+- Iconify
+- Docker
+- Nginx
 
-## Estructura principal
-
-- `src/router/index.js`
-- `src/views/HomeView.vue`
-- `src/views/AboutView.vue`
-- `src/assets/main.css`
-
-## Instalacion
+## Instalación
 
 ```bash
 npm install
 ```
 
-## Ejecucion local
+## Ejecución local
 
 ```bash
 npm run dev
 ```
 
-Para generar una version de produccion:
+La aplicación quedará disponible en la URL local que indique Vite, normalmente:
+
+```text
+http://localhost:5173
+```
+
+## Compilar para producción
 
 ```bash
 npm run build
 ```
 
-## Dockerizando la aplicacion Vue
+El resultado se genera en el directorio `dist`.
+
+## Dockerizando la aplicación Vue
 
 Construir imagen:
 
@@ -61,3 +63,29 @@ Probar en navegador:
 ```text
 http://localhost:8080
 ```
+
+## Estructura principal
+
+```text
+src/
+  assets/
+    main.css
+  router/
+    index.js
+  views/
+    AboutView.vue
+    HomeView.vue
+  App.vue
+  main.js
+Dockerfile
+.dockerignore
+```
+
+## Estado del proyecto
+
+- La app mantiene la temática Unbored.
+- Home consume una API pública de actividades con Axios.
+- About describe brevemente el propósito de la app.
+- La navegación entre Home y About usa Vue Router.
+- Dockerfile usa multi-stage build con Node y Nginx.
+- No incluye docker-compose.
