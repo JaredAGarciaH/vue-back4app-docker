@@ -1,6 +1,10 @@
 # vue-back4app-docker
 
-Proyecto base de Vue 3 con Vite para la primera etapa del tutorial de Back4App sobre despliegue y dockerizacion de una aplicacion Vue.js.
+Aplicacion Vue 3 con Vite basada en el tutorial de Back4App "Como implementar una aplicacion Vue.js".
+
+La app se llama **Unbored** y su objetivo es sugerir actividades para no aburrirse. En esta etapa se agrega Vue Router, Axios y una pantalla que consume una API publica de actividades. La dockerizacion para Back4App Containers se agregara despues.
+
+Nota: el endpoint original del tutorial, `https://www.boredapi.com/api/activity`, puede no responder actualmente. Por eso esta version usa `https://bored-api.appbrewery.com/random`, una API publica compatible que devuelve actividades y permite mantener una peticion real con Axios.
 
 ## Tecnologias iniciales
 
@@ -8,6 +12,17 @@ Proyecto base de Vue 3 con Vite para la primera etapa del tutorial de Back4App s
 - Vite
 - JavaScript
 - npm
+- Vue Router
+- Axios
+- Sass
+- Iconify para Vue
+
+## Estructura principal
+
+- `src/router/index.js`
+- `src/views/HomeView.vue`
+- `src/views/AboutView.vue`
+- `src/assets/main.css`
 
 ## Instalacion
 
@@ -26,4 +41,3 @@ Para generar una version de produccion:
 ```bash
 npm run build
 ```
-
